@@ -153,8 +153,7 @@ footer a{display:block;color:var(--muted);text-decoration:none;font-size:14.5px;
 footer a:hover{color:var(--accent)}
 footer .brand p{font-size:14px;color:var(--muted);max-width:280px}
 footer .bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--faint)}
-footer .bottom .pkg{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+  display:flex;justify-content:center;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--faint)}
 
 /* ---------- 语言切换器 ---------- */
 nav .lang{display:flex;gap:4px;margin-left:18px;align-items:center}
@@ -176,8 +175,10 @@ nav .lang a::after{display:none}
   section{padding:64px 0}
 }
 @media(max-width:620px){
-  nav .lang a:not(.cur){display:none}
+  nav .wrap{height:auto;min-height:66px;flex-wrap:wrap;padding:12px 0;row-gap:10px}
+  nav .links{flex-wrap:wrap;row-gap:8px}
   nav .lang{margin-left:8px}
+  nav .lang a{font-size:11.5px;padding:4px 8px}
   .grid,.grid.two,.dl-cards,.points,.contact-grid{grid-template-columns:1fr}
   nav .links a{margin-left:14px;font-size:13.5px}
   nav .links a:nth-child(4){display:none}
@@ -187,4 +188,3 @@ nav .lang a::after{display:none}
   .stat{padding:16px 20px;min-width:128px}
   footer .cols{grid-template-columns:1fr}
 }
-</style>
