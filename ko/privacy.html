@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보 — Lucent</title>
+<meta name="description" content="Lucent의 개인정보: 기기를 떠나지 않는 암호화된 데이터베이스, 무차별 대입에 맞서는 앱 잠금, 휴대할 수 있는 비밀번호 백업. 약속이 아닌 구조로 지킵니다.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Lucent</a>
+    <div class="links">
+      <a href="index.html">홈</a>
+      <a href="features.html">기능</a>
+      <a href="download.html">다운로드</a>
+      <a href="privacy.html" class="active">개인정보</a>
+      <a href="about.html">소개·문의</a>
+      <div class="lang"><a href="../privacy.html">EN</a><a href="../zh/privacy.html">中文</a><a href="../ja/privacy.html">日本語</a><a href="privacy.html" class="cur">한국어</a></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">개인정보</div>
+    <h1 class="rv" style="font-size:clamp(44px,7vw,76px)">약속이 아닌<br>구조로</h1>
+    <p class="sub rv">개인정보를 "약속"하는 것은 누구나 할 수 있습니다. Lucent는 그것을 깨는 데 품이 들도록 만들어졌습니다 — 구조상 당신의 데이터가 갈 곳이 어디에도 없습니다.</p>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+
+    <div class="panel glass rv center" style="margin-top:0">
+      <p class="lead" style="font-size:clamp(20px,3vw,28px);color:var(--ink);max-width:780px;margin:0 auto;line-height:1.7">당신이 내보내거나, 모델에게 볼 이유를 주기 전까지 기기 밖으로 나가는 것은 아무것도 없습니다. <span class="grad-text" style="font-weight:700">정책의 전문은 이것뿐이며, 코드도 동의합니다.</span></p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">01 — 저장 시 암호화</div>
+      <h2>데이터베이스는 <span class="grad-text">갑옷</span>을 입습니다</h2>
+      <p class="body">당신의 메모는 <strong>SQLCipher로 암호화된 데이터베이스</strong>에 살고, 첨부파일은 개별적으로 잠깁니다. 가장 뜨거운 두 경로 — PBKDF2 키 유도와 AES-256-GCM — 는 JNI를 통해 Rust가 맡고, 동일한 Kotlin 폴백도 있으니 앱이 네이티브 라이브러리에 인질로 잡히는 일은 없습니다. 잠금 해제된 휴대폰을 손에 넣는 것과 <em>파일</em>을 손에 넣는 것은 다른 이야기입니다. 후자가 얻는 것은 노이즈뿐입니다.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">02 — 앱 잠금</div>
+      <h2><span class="grad-text">셈하는</span> 자물쇠</h2>
+      <p class="body">이것은 정중한 부탁이 아니라 진짜 무차별 대입 방어 정책입니다. <strong>단계적으로 늘어나는 쿨다운, 재부팅 후에도 지워지지 않는 카운터</strong>, 선택적인 보안 질문, 선택적인 자폭 기능 — 그리고 Android의 지문, 데스크톱의 Windows Hello는 쿨다운 내내 예의 바르게 부재중입니다. 너무 많이 틀리면 앱은 진짜로 협상을 종료합니다.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">03 — 휴대하는 백업</div>
+      <h2>하나의 파일. 주머니에. <span class="grad-text">비밀번호와 함께.</span></h2>
+      <p class="body">백업은 단일 <strong>.lcb 파일</strong> 하나. 메모, 할 일, 히스토리, 대화, 첨부파일, 설정을 싣고 기기를 넘나듭니다 — 복원 전 미리보기, 자동 실행, 비밀번호 보호까지. 아무도 읽을 수 없는 백업은 백업이 아니라 기념품이니, 이것은 나갈 때 한 번, 돌아올 때 한 번 읽힙니다.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">04 — 기본값은 끄기</div>
+      <h2>묻는 것조차 <span class="grad-text">생략합니다</span></h2>
+      <p class="body">공유 시트 연동: <strong>끄기</strong>. 진단: <strong>끄기</strong>, 켜도 로컬에만 둡니다. 연결하는 비서 서비스는 전적으로 당신의 선택. 클라우드 미러링은 직접 설정하는 모듈로 WebDAV 경유 — 당신의 서버, 당신의 규칙입니다. 이 앱 어디에도 "기본 켜기, 3단계 메뉴에 숨기기" 같은 꼼수는 없습니다.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">05 — 당신의 모델, 당신의 데이터</div>
+      <h2>비서가 보는 것은 <span class="grad-text">당신이 보여준 것</span>뿐</h2>
+      <p class="body">클라우드 모델이 보는 것은 당신이 앞에 내놓은 것뿐 — 뒤에서 동기화도, 인덱싱도, "개선"도 없습니다. 완전한 은둔 모드가 취향이라면 .gguf를 로컬에서 돌리면 네트워크는 계속 꺼두어도 됩니다. 암호화에 대한 의도적인 유일한 예외는 <strong>내보내기</strong> — Markdown, Word, PDF, Excel로의 쓰기입니다. 그것은 다른 곳에서도 열 수 있는 파일이며, 그것이 바로 내보내기의 존재 이유입니다.</p>
+      <div class="cta" style="justify-content:flex-start">
+        <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/blob/main/PRIVACY/PRIVACY.md" target="_blank" rel="noopener">개인정보처리방침 전문 읽기 →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>메모, 할 일, 그리고 진짜로 손을 쓰는 AI 비서. MIT 라이선스의 오픈소스, 무료.</p>
+      </div>
+      <div>
+        <h4>페이지</h4>
+        <a href="index.html">홈</a><a href="features.html">기능</a><a href="download.html">다운로드</a><a href="privacy.html">개인정보</a><a href="about.html">소개·문의</a>
+      </div>
+      <div>
+        <h4>개발자</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub 프로필</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent 저장소</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">이슈 제보</a>
+      </div>
+      <div>
+        <h4>연락처</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">최신 릴리스</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
+</script>
+</body>
+</html>

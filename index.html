@@ -1,225 +1,128 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucent — 笔记、任务，和一个真正动手的 AI 助手</title>
-<meta name="description" content="Lucent：笔记与任务应用，AI 助手能真正操作你的数据，加密数据库永不离开你的设备。Android 与 Windows 双平台，开源 MIT。">
-<style>
-:root{
-  --bg:#0b0e1a;
-  --bg2:#11162a;
-  --ink:#eef1ff;
-  --muted:#9aa3c7;
-  --glass:rgba(255,255,255,.06);
-  --glass-border:rgba(255,255,255,.12);
-  --accent:#7dd3fc;
-  --accent2:#c4b5fd;
-  --accent3:#f0abfc;
-  --radius:20px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-/* ---- ambient background ---- */
-.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
-  background:radial-gradient(1200px 800px at 80% -10%,#1b2450 0%,transparent 60%),
-             radial-gradient(1000px 700px at 10% 20%,#3b1d5e 0%,transparent 55%),
-             radial-gradient(900px 900px at 50% 110%,#0e3a4a 0%,transparent 60%),
-             var(--bg);}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 22s ease-in-out infinite alternate}
-.orb.a{width:420px;height:420px;left:-120px;top:6%;background:#5b5bd6}
-.orb.b{width:360px;height:360px;right:-100px;top:32%;background:#0ea5e9;animation-delay:-7s}
-.orb.c{width:300px;height:300px;left:32%;bottom:-120px;background:#a855f7;animation-delay:-14s}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.12)}}
-/* ---- layout ---- */
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-section{padding:96px 0}
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  background:rgba(11,14,26,.55);border-bottom:1px solid rgba(255,255,255,.07)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;padding-top:0;padding-bottom:0}
-.logo{font-size:22px;font-weight:800;letter-spacing:.5px;
-  background:linear-gradient(120deg,var(--accent),var(--accent2),var(--accent3));
-  -webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
-nav .links a{color:var(--muted);text-decoration:none;margin-left:28px;font-size:15px;transition:color .2s}
-nav .links a:hover{color:var(--ink)}
-/* ---- hero ---- */
-.hero{padding:130px 0 90px;text-align:center}
-.badge{display:inline-block;padding:7px 18px;border-radius:999px;font-size:13px;letter-spacing:1px;
-  background:var(--glass);border:1px solid var(--glass-border);color:var(--accent);backdrop-filter:blur(10px);margin-bottom:28px}
-h1{font-size:clamp(56px,9vw,104px);font-weight:900;letter-spacing:2px;line-height:1.15;
-  background:linear-gradient(115deg,#fff 20%,var(--accent) 55%,var(--accent3) 90%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.tagline{font-size:clamp(19px,3vw,26px);color:var(--ink);margin:26px 0 12px;font-weight:600}
-.sub{color:var(--muted);font-size:16px;max-width:640px;margin:0 auto}
-.cta{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 38px;border-radius:14px;font-size:16px;font-weight:700;text-decoration:none;transition:transform .18s,box-shadow .18s}
-.btn.primary{background:linear-gradient(120deg,#38bdf8,#818cf8);color:#0b0e1a;box-shadow:0 8px 32px rgba(56,189,248,.35)}
-.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(56,189,248,.5)}
-.btn.ghost{background:var(--glass);border:1px solid var(--glass-border);color:var(--ink);backdrop-filter:blur(10px)}
-.btn.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
-.stats{display:flex;gap:16px;justify-content:center;margin-top:64px;flex-wrap:wrap}
-.stat{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);
-  padding:20px 34px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-width:150px}
-.stat b{display:block;font-size:30px;background:linear-gradient(120deg,var(--accent),var(--accent3));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{font-size:13px;color:var(--muted)}
-/* ---- section titles ---- */
-.kicker{color:var(--accent);font-size:13px;letter-spacing:3px;font-weight:700;margin-bottom:14px}
-h2{font-size:clamp(30px,4.5vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:1px}
-.lead{color:var(--muted);max-width:680px;font-size:17px}
-/* ---- feature cards ---- */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
-.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);
-  padding:32px 28px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  transition:transform .22s,border-color .22s,box-shadow .22s}
-.card:hover{transform:translateY(-6px);border-color:rgba(125,211,252,.4);box-shadow:0 18px 50px rgba(56,189,248,.12)}
-.card .icon{font-size:34px;margin-bottom:16px;display:block}
-.card h3{font-size:19px;margin-bottom:10px}
-.card p{font-size:15px;color:var(--muted)}
-/* ---- platforms ---- */
-.plats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
-.plat{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);
-  padding:44px 36px;backdrop-filter:blur(16px);text-align:center}
-.plat .icon{font-size:46px}
-.plat h3{font-size:22px;margin:14px 0 8px}
-.plat p{color:var(--muted);font-size:15px;margin-bottom:22px}
-.build-note{margin-top:44px;background:linear-gradient(120deg,rgba(56,189,248,.1),rgba(168,85,247,.1));
-  border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px;text-align:center}
-.build-note p{color:var(--muted);max-width:640px;margin:12px auto 0;font-size:16px}
-/* ---- privacy ---- */
-.privacy{text-align:center}
-.privacy .big{font-size:clamp(24px,4vw,36px);font-weight:700;max-width:760px;margin:30px auto;line-height:1.6}
-.privacy .big em{font-style:normal;background:linear-gradient(120deg,var(--accent),var(--accent3));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-/* ---- download ---- */
-.dl{text-align:center}
-.dl .cta{margin-top:36px}
-/* ---- footer ---- */
-footer{border-top:1px solid rgba(255,255,255,.07);padding:44px 0;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer a{color:var(--accent);text-decoration:none}
-footer a:hover{text-decoration:underline}
-.pkg{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:#6b74a0}
-/* ---- reveal ---- */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.rv.on{opacity:1;transform:none}
-/* ---- responsive ---- */
-@media(max-width:860px){
-  .grid{grid-template-columns:1fr 1fr}
-  section{padding:70px 0}
-}
-@media(max-width:600px){
-  .grid,.plats{grid-template-columns:1fr}
-  nav .links a{margin-left:16px;font-size:14px}
-  .hero{padding:90px 0 60px}
-  .stat{padding:16px 20px;min-width:120px}
-}
-</style>
+<title>Lucent — Notes, tasks, and an AI assistant with actual hands</title>
+<meta name="description" content="Lucent: a notes-and-tasks app whose AI assistant can genuinely touch your data — sealed inside an encrypted database on your own device. Android & Windows. Free and open source.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="#">Lucent</a>
+    <a class="logo" href="index.html">Lucent</a>
     <div class="links">
-      <a href="#features">特性</a>
-      <a href="#platforms">双平台</a>
-      <a href="#privacy">隐私</a>
-      <a href="#download">下载</a>
-      <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">GitHub</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="about.html">About&nbsp;·&nbsp;Contact</a>
+      <div class="lang"><a href="index.html" class="cur">EN</a><a href="zh/index.html">中文</a><a href="ja/index.html">日本語</a><a href="ko/index.html">한국어</a></div>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="badge rv">开源 · MIT · 免费</div>
+    <div class="badge rv">OPEN SOURCE · MIT · FREE</div>
     <h1 class="rv">Lucent</h1>
-    <p class="tagline rv">笔记、任务，和一个真正动手的 AI 助手。</p>
-    <p class="sub rv">大多数笔记应用让你在「好看」「私密」「智能」里三选二。Lucent 懒得做这道选择题——全都要，还顺手做成了玻璃的样子。</p>
+    <p class="tagline rv">Notes, tasks, and an AI assistant with actual hands.</p>
+    <p class="sub rv">Most note-taking apps extend a generous invitation to choose any two of three virtues: the beautiful one, the private one, or the intelligent one. Lucent politely declines the bargain — and happens to be made of glass.</p>
     <div class="cta rv">
-      <a class="btn primary" href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">免费下载</a>
-      <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">看看源码</a>
+      <a class="btn primary" href="download.html">Download free</a>
+      <a class="btn ghost" href="features.html">See what it can do</a>
     </div>
     <div class="stats rv">
-      <div class="stat"><b>0</b><span>数据离开你的设备</span></div>
-      <div class="stat"><b>4</b><span>界面语言一键切换</span></div>
-      <div class="stat"><b>2</b><span>平台，一份代码</span></div>
+      <div class="stat glass"><b>0</b><span>bytes leave your device</span></div>
+      <div class="stat glass"><b>4</b><span>languages, switched instantly</span></div>
+      <div class="stat glass"><b>2</b><span>platforms, one shared heart</span></div>
+    </div>
+    <div class="toc rv">
+      <a href="features.html">✨ Feature tour</a>
+      <a href="download.html">⬇️ Get the app</a>
+      <a href="privacy.html">🔒 Privacy promise</a>
+      <a href="about.html">👩‍💻 About the developer</a>
     </div>
   </div>
 </header>
 
-<section id="features">
+<section>
   <div class="wrap">
-    <div class="kicker rv">为什么是 Lucent</div>
-    <h2 class="rv">有个性的生产力，没脾气的隐私</h2>
-    <p class="lead rv">它不是又一个"能聊天的笔记本"。它的助手长了手——而且动手之前，一定先敲门。</p>
+    <div class="kicker rv">THE SHORT VERSION</div>
+    <h2 class="rv">A notebook that remembers.<br>A to-do list with <span class="grad-text">teeth</span>.</h2>
+    <p class="lead rv">Everything you write is sealed in an encrypted database that never departs your device. The assistant living inside it is not a chat box with opinions — it can tidy your notes, run your errands, rename your files. And before it touches a single byte, it lays the whole plan out in front of you: what, where, why — every arguable field editable. You nod; only then does it write.</p>
+
     <div class="grid">
-      <div class="card rv"><span class="icon">🤲</span><h3>会动手的助手</h3><p>创建、编辑、归档笔记，管理任务、搜文件、挂附件——它都能直接做。但每一次动手之前，都会把计划摊开给你看：改哪里、为什么，一个一个字段任你改。你点头，它才落笔。</p></div>
-      <div class="card rv"><span class="icon">🔒</span><h3>加密到有点偏执</h3><p>整库 SQLCipher 加密，附件逐个上锁，应用锁带暴力破解冷却——输错太多次，它真的会翻脸。备份是单个带密码的 .lcb 文件，揣进口袋就能走。</p></div>
-      <div class="card rv"><span class="icon">🧠</span><h3>模型随你挑</h3><p>OpenAI、Anthropic、Google 的云端模型随便接，几个配置一键切换；或者把 .gguf 往本机一装，llama.cpp 就在你自己的芯片上跑——断网也能用。不想用助手？关掉就是，笔记半点不少。</p></div>
-      <div class="card rv"><span class="icon">🦷</span><h3>任务是长牙的</h3><p>子任务、优先级、重复日程、重启也不丢的提醒。直接写"下周五下午六点"，它会变成一个真正的闹钟，而不是一句漂亮的废话。</p></div>
-      <div class="card rv"><span class="icon">🕰️</span><h3>笔记记得自己是谁</h3><p>每次有意义的编辑都会留下快照，改崩了随时穿越回去。<code>[[双向链接]]</code>、模板、标签、涂鸦、清单——草稿和回收站是分开的，未写完的念头不会被当成垃圾。</p></div>
-      <div class="card rv"><span class="icon">🫧</span><h3>玻璃做的界面</h3><p>会呼吸的渐变在毛玻璃后面缓缓漂移，八大风格家族随便换，Android 12 以上还能跟你的壁纸取色。好看不是装饰，是每天打开它的理由。</p></div>
+      <div class="card glass rv"><span class="icon">🤲</span><h3>An assistant with hands</h3><p>Create, edit, archive and delete notes; manage tasks; search with a real filter language — it does these things itself instead of merely suggesting them.</p></div>
+      <div class="card glass rv"><span class="icon">🔒</span><h3>Paranoid-grade encryption</h3><p>SQLCipher database, individually locked attachments, an app lock with a genuine brute-force policy. Backups are a single password-protected file that fits in your pocket.</p></div>
+      <div class="card glass rv"><span class="icon">🧠</span><h3>Your model, your call</h3><p>Plug in any cloud model you pay for — or import a .gguf and let llama.cpp run on your own silicon. Offline works. Prefer no assistant at all? Switch it off; the notes lose nothing.</p></div>
+      <div class="card glass rv"><span class="icon">🦷</span><h3>Tasks with teeth</h3><p>Subtasks, priorities, repeat schedules. Type "next Friday at 6" and it becomes a real timestamp with a real alarm — not a pretty sentence.</p></div>
+      <div class="card glass rv"><span class="icon">🕰️</span><h3>Notes with memory</h3><p>Every meaningful edit is snapshotted, so a confident 2 a.m. rewrite can always be undone by morning. Bidirectional links, templates, doodles — the works.</p></div>
+      <div class="card glass rv"><span class="icon">🫧</span><h3>Made of glass, unashamedly</h3><p>A living gradient drifts behind frosted panels. Eight style families, Monet-tinted themes — on Android 12+ it even borrows your wallpaper's palette for the day.</p></div>
     </div>
+    <div class="cta rv"><a class="btn ghost" href="features.html">Take the full feature tour →</a></div>
   </div>
 </section>
 
-<section id="platforms">
-  <div class="wrap">
-    <div class="kicker rv">一份代码，两处安家</div>
-    <h2 class="rv">口袋里有，桌面上也有</h2>
-    <p class="lead rv">同一套灵魂，两个身体：在哪边记的东西，另一边都懂。</p>
-    <div class="plats">
-      <div class="plat rv"><span class="icon">📱</span><h3>Android</h3><p>原生 APK，Kotlin + Jetpack Compose，小组件直接贴在桌面上。</p><a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">下载 APK</a></div>
-      <div class="plat rv"><span class="icon">💻</span><h3>Windows</h3><p>双击即装的 .exe，托盘常驻，宽屏有专属侧边栏——不是手机界面硬拉宽。</p><a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">下载安装包</a></div>
-    </div>
-    <div class="build-note rv">
-      <div class="kicker">构建方式也很 Lucent</div>
-      <p>不用装 Android Studio，不用敲命令行。在 GitHub 上按一下 Actions 的按钮，去泡杯茶，回来安装包就在那儿等你了。配方写在仓库里，不在作者的脑子里。</p>
-    </div>
-  </div>
-</section>
-
-<section id="privacy" class="privacy">
-  <div class="wrap">
-    <div class="kicker rv">隐私</div>
-    <h2 class="rv">结构性的隐私，不是口号</h2>
-    <p class="big rv">没什么可"承诺"的，因为<em>没什么会离开</em>：<br>你不导出、不让模型看，就没有任何东西离开你的设备。</p>
-    <p class="lead rv" style="margin:0 auto">分享菜单默认关闭，诊断默认关闭，云同步是你自己配的 WebDAV——连"默认开启再让你关"这种小把戏都没有。</p>
-  </div>
-</section>
-
-<section id="download" class="dl">
-  <div class="wrap">
-    <div class="kicker rv">免费，开源</div>
-    <h2 class="rv">拿去用吧，不用客气</h2>
-    <p class="lead rv" style="margin:0 auto">MIT 协议，源码全公开。拿去用、拿去改、拿去商用都行——只要把 LICENSE 里那个名字留下。</p>
+<section>
+  <div class="wrap center">
+    <div class="kicker rv">ONE CODEBASE, TWO HOMES</div>
+    <h2 class="rv">In your pocket. On your desk.</h2>
+    <p class="lead rv">One product with a single shared heart: whatever you capture on one side, the other side understands. Android and Windows editions, each built by pressing a single button on GitHub.</p>
     <div class="cta rv">
-      <a class="btn primary" href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">前往下载页</a>
-      <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/blob/main/PRIVACY/PRIVACY.md" target="_blank" rel="noopener">隐私政策</a>
+      <a class="btn primary" href="download.html">Get Lucent</a>
+      <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">GitHub repository</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="panel glass rv center">
+      <div class="kicker">PRIVACY</div>
+      <h2>Nothing to "promise" —<br>because <span class="grad-text">nothing leaves</span></h2>
+      <p class="lead" style="margin:0 auto">Don't export, don't show a model, and not a single byte departs your device. Privacy that is structural, not merely promised.</p>
+      <div class="cta"><a class="btn ghost" href="privacy.html">See how it's welded shut →</a></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© 2026 <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">Yuan0-o</a> · MIT Licence · <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">GitHub 仓库</a></div>
-    <div class="pkg">com.jiaying.yuan.lucentapp</div>
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>Notes, tasks, and an AI assistant with actual hands. Free and open source under the MIT Licence.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="features.html">Features</a><a href="download.html">Download</a><a href="privacy.html">Privacy</a><a href="about.html">About · Contact</a>
+      </div>
+      <div>
+        <h4>Developer</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub profile</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent repository</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">Report an issue</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">Latest release</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
   </div>
 </footer>
 
 <script>
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-// gentle parallax on orbs
 addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
 </script>
 </body>

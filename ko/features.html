@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기능 — Lucent</title>
+<meta name="description" content="Lucent 기능 깊이 보기: 손을 쓰는 AI 비서, 편집증 수준의 암호화, 기억하는 메모, 이빨 달린 할 일, 온디바이스 모델, 유리로 만든 인터페이스.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Lucent</a>
+    <div class="links">
+      <a href="index.html">홈</a>
+      <a href="features.html" class="active">기능</a>
+      <a href="download.html">다운로드</a>
+      <a href="privacy.html">개인정보</a>
+      <a href="about.html">소개·문의</a>
+      <div class="lang"><a href="../features.html">EN</a><a href="../zh/features.html">中文</a><a href="../ja/features.html">日本語</a><a href="features.html" class="cur">한국어</a></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">기능</div>
+    <h1 class="rv" style="font-size:clamp(44px,7vw,76px)">기록을 넘어서</h1>
+    <p class="sub rv">모든 기능은 같은 질문에 답합니다 — 왜 이 앱이 당신의 휴대폰과 컴퓨터에 살 자격이 있는가.</p>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+
+    <div class="feature-block rv">
+      <div class="num">01 — AI 비서</div>
+      <h2>의견뿐만 아니라 <span class="grad-text">손</span>까지</h2>
+      <p class="body">이것이 Lucent를 정의하는 기능입니다. 원하는 모델을 가져오세요 — OpenAI, Anthropic, Google의 요청 형식을 유창하게 구사하고, 여러 프로필을 저장해 원터치로 전환합니다. 혹은 모든 것을 기기 위에서 돌릴 수도 있습니다. 아무것도 설정하지 않으면 비서는 존재하지 않지만, 메모 앱은 아무것도 잃지 않습니다.</p>
+      <p class="body" style="margin-top:14px">가질 만한 가치가 있는 이유는 그것이 <strong>행동할 수 있기</strong> 때문입니다. 메모 작성·읽기·편집·색칠·고정·보관·삭제. 할 일 작성·완료·다시 열기·일정·우선순위. 진짜 필터 언어로 검색. 파일 첨부·이름 바꾸기·삭제. 의견은 있고 손이 없는 것은 채팅창이라 부릅니다. <strong>이쪽은 노크부터 하도록 교육받은 집사</strong>입니다.</p>
+      <p class="body" style="margin-top:14px">무엇인가를 바꾸기 전에 의도의 전부를 당신의 앞에 보입니다 — 당신의 언어로, 그 자체가 편집기인 대화상자 안에. 한 바이트가 쓰이기 전에 망설여지는 항목은 전부 수정할 수 있습니다. 마지막으로 말하는 것은 언제나 당신입니다.</p>
+      <div class="points">
+        <div class="point glass"><b>🪞 먼저 노크합니다</b>모든 변경은 눈에 보이는 미리보기로 도착하고, 항목별로 수정 가능합니다. 당신의 고개 끄덕임이 있어야 실행됩니다.</div>
+        <div class="point glass"><b>🗂️ 4개의 라이브 패널</b>비서의 할 일 목록, 따르는 계획, 시작한 백그라운드 작업, 소환한 서브 에이전트 — 모두 실시간으로 지켜보고, 멈추고, 지시할 수 있습니다.</div>
+        <div class="point glass"><b>🧰 뒤편의 작업장</b>설정 깊숙한 곳에 진짜 도구 상자. 파일 다루기, 명령 실행, Git, 웹 가져오기, SQLite, 그리고 Word / Excel / PowerPoint 네이티브 읽기쓰기 — 밑에 오피스 제품군은 없습니다.</div>
+        <div class="point glass"><b>🧠 세 가지 기억</b>이번 대화, 이 프로젝트, 그리고 당신. 스킬을 적어두니 같은 습관을 두 번 가르칠 필요가 없습니다.</div>
+      </div>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">02 — 모델의 선택</div>
+      <h2>클라우드, 온디바이스, <span class="grad-text">혹은 부재</span></h2>
+      <p class="body"><strong>.gguf</strong> 파일을 가져오면 비서는 기기 위에서 직접 도는 llama.cpp로 대답합니다 — 계정도, API 키도, 네트워크도 필요 없습니다. 앱을 떠나면 모델은 내려갑니다. 휴대폰에서는 1–4GB Q4 모델이 적당하고, 데스크톱에서는 더 야심 차게 가도 됩니다. 로컬 도구는 옵트인, GPU 가속은 솔직한 경고 뒤에 선택할 수 있습니다.</p>
+      <div class="points">
+        <div class="point glass"><b>☁️ 클라우드 모델</b>여러 프로필을 저장하고 원터치로 전환. 요금은 당신의 선택대로.</div>
+        <div class="point glass"><b>📲 온디바이스 모델</b>자신의 실리콘 위에서 도는 llama.cpp. 정직한 오프라인 지능입니다.</div>
+      </div>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">03 — 메모</div>
+      <h2>전생을 <span class="grad-text">기억하는</span> 메모</h2>
+      <p class="body">의미 있는 편집은 모두 스냅샷으로 남으니, 메모가 한때 무엇을 말했는지 언제든 되짚을 수 있고, 자신만만한 고쳐쓰기가 그저 낙관에 불과했음이 밝혀지면 복원할 수 있습니다. <strong>[[장보기 목록]]</strong>이라고 쓰면 탭할 수 있는 링크가 되고, 아직 존재하지 않는 제목을 가리키면 링크가 빨갛게 빛나다가 탭 한 번에 우아하게 메모가 태어납니다.</p>
+      <div class="points">
+        <div class="point glass"><b>🕰️ 스냅샷과 히스토리</b>새벽의 고쳐쓰기도 아침이면 되돌릴 수 있습니다.</div>
+        <div class="point glass"><b>🔗 양방향 링크</b>[[ ]]로 쓰면 링크가 됩니다. 빨간 링크는 탭으로 태어납니다.</div>
+        <div class="point glass"><b>📝 템플릿</b>백지에는 원터치 시작 4종 — 당신의 템플릿을 저장하면 이후의 백지에서 마중 나옵니다.</div>
+        <div class="point glass"><b>🎨 낙서와 리치 텍스트</b>말이 닿지 않는 생각에는 캔버스를. 체크리스트는 일등 시민입니다.</div>
+        <div class="point glass"><b>🏷️ 태그·색·고정</b>첨부파일은 개별 암호화, 독립된 자물쇠의 비밀 공간도 있습니다.</div>
+        <div class="point glass"><b>🗑️ 임시 저장 ≠ 휴지통</b>미완의 생각은 쓰레기가 아닙니다 — 임시 저장은 휴지통 옆에 품위 있게.</div>
+      </div>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">04 — 할 일</div>
+      <h2><span class="grad-text">이빨</span> 달린 할 일</h2>
+      <p class="body">하위 작업, 우선순위, 반복 일정, 그리고 재부팅 후에도 살아남는 알림. 마감일은 일상 언어에서 해석됩니다 — <strong><em>다음 주 금요일 6시</em>는 진짜 타임스탬프와 진짜 알람이 됩니다</strong>. 반복 주기는 일등 시민이지, 언젠가 항복할 약삭빠른 문장이 아닙니다. 할 일을 끝내면 체크리스트 전체가 따라가고, 끝난 할 일은 전용 화면으로 은퇴합니다.</p>
+      <div class="points">
+        <div class="point glass"><b>🗣️ 자연어 날짜</b>"다음 주 금요일 6시" → 진짜 타임스탬프와 알람.</div>
+        <div class="point glass"><b>🔁 반복</b>일등 시민인 주기. 언젠가 포기할 문장이 아닙니다.</div>
+        <div class="point glass"><b>⏰ 알림</b>재부팅을 살아남습니다. 아침에도 그 자리에 있습니다.</div>
+        <div class="point glass"><b>✅ 체크리스트 연동</b>할 일이 끝나면 아래 항목 모두가 따라 체크됩니다.</div>
+      </div>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">05 — 겉모습</div>
+      <h2>부끄럼 없이, <span class="grad-text">유리로 만들었습니다</span></h2>
+      <p class="body">살아 있는 그러데이션이 아래를 지나는 것을 흐리게 하는 프로스트 글라스 패널 뒤에서 유유히 흐르고, 거의 반복되지 않으며, 기기가 미리 허락한 비용으로 동작합니다. 8가지 스타일 패밀리에 넉넉한 팔레트, 라이트·다크·시스템 연동, 그리고 Monet 풍 테마의 화랑 — <strong>Android 12 이상에서는 배경화면의 색을 그날의 팔레트로 빌려옵니다</strong>. 위젯은 같은 유리의 표면을 런처로 가져오고, Windows에서는 앱이 트레이로 미끄러져 들어가 와이드 모니터에는 사이드바가 응합니다. 휴대폰 레이아웃을 늘인 것보다 훨씬 나은 대접입니다.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">06 — 언어와 빌드</div>
+      <h2>4개 언어. <span class="grad-text">원버튼</span> 빌드.</h2>
+      <p class="body"><strong>English, 中文, 日本語, 한국어</strong> — 모든 화면, 대화상자, 날짜 형식, 템플릿을 아우릅니다. 언어를 바꾸면 앱 전체가 같은 프레임에서 따라옵니다. 카탈로그가 하나뿐이기 때문입니다. 빌드는 더 간단합니다. Android Studio도, 로컬 SDK도, 커맨드라인도 필요 없습니다. <strong>GitHub에 푸시하고, Actions를 열고, 워크플로를 실행한 뒤 결과를 다운로드</strong>하면 됩니다. 레시피는 상자 안에 있지, 만든 이의 머릿속에 있는 것이 아닙니다.</p>
+      <div class="cta" style="justify-content:flex-start"><a class="btn primary" href="download.html">Lucent 내려받기 →</a></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>메모, 할 일, 그리고 진짜로 손을 쓰는 AI 비서. MIT 라이선스의 오픈소스, 무료.</p>
+      </div>
+      <div>
+        <h4>페이지</h4>
+        <a href="index.html">홈</a><a href="features.html">기능</a><a href="download.html">다운로드</a><a href="privacy.html">개인정보</a><a href="about.html">소개·문의</a>
+      </div>
+      <div>
+        <h4>개발자</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub 프로필</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent 저장소</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">이슈 제보</a>
+      </div>
+      <div>
+        <h4>연락처</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">최신 릴리스</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
+</script>
+</body>
+</html>

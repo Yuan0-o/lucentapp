@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシー — Lucent</title>
+<meta name="description" content="Lucent のプライバシー：デバイスの外に出ない暗号化データベース、総当たり攻撃に耐えるアプリロック、持ち歩けるパスワード付きバックアップ。約束ではなく構造で守ります。">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Lucent</a>
+    <div class="links">
+      <a href="index.html">ホーム</a>
+      <a href="features.html">機能</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="privacy.html" class="active">プライバシー</a>
+      <a href="about.html">概要・お問い合わせ</a>
+      <div class="lang"><a href="../privacy.html">EN</a><a href="../zh/privacy.html">中文</a><a href="privacy.html" class="cur">日本語</a><a href="../ko/privacy.html">한국어</a></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">プライバシー</div>
+    <h1 class="rv" style="font-size:clamp(44px,7vw,76px)">約束ではなく<br>構造で</h1>
+    <p class="sub rv">プライバシーを「約束」することなど誰にでもできます。Lucent はそれを破るのに骨が折れるよう作られています——構造上、あなたのデータの行き先がどこにもないのです。</p>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+
+    <div class="panel glass rv center" style="margin-top:0">
+      <p class="lead" style="font-size:clamp(20px,3vw,28px);color:var(--ink);max-width:780px;margin:0 auto;line-height:1.7">あなたがエクスポートするか、モデルに見せる理由を与えるまで、デバイスの外には何も出ていきません。<span class="grad-text" style="font-weight:700">方針の全文はこれだけであり、コードも同意しています。</span></p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">01 — 保存時の暗号化</div>
+      <h2>データベースは<span class="grad-text">鎧</span>を着る</h2>
+      <p class="body">あなたのメモは <strong>SQLCipher で暗号化されたデータベース</strong>に住み、添付ファイルは個別に施錠されます。最も熱い二つの経路——PBKDF2 の鍵導出と AES-256-GCM——は JNI 経由で Rust が担い、同一の Kotlin フォールバックもあるので、アプリがネイティブライブラリに人質に取られることはありません。ロック解除済みの携帯を手にするのと、<em>ファイル</em>を手にするのとでは話が別です。後者が得るのはノイズだけです。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">02 — アプリロック</div>
+      <h2><span class="grad-text">数える</span>錠前</h2>
+      <p class="body">これは丁寧なお願いではなく、本物の総当たり攻撃対策です。<strong>段階的に延びるクールダウン、再起動後も消えないカウンター</strong>、任意の秘密の質問、任意の自爆機能——そして Android の指紋認証、デスクトップの Windows Hello は、クールダウンの間は礼儀正しく留守にします。間違えすぎれば、アプリは本当に交渉を打ち切ります。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">03 — 持ち歩けるバックアップ</div>
+      <h2>ひとつのファイル。ポケットに。<span class="grad-text">パスワード付きで。</span></h2>
+      <p class="body">バックアップは単一の <strong>.lcb ファイル</strong>。メモ、タスク、履歴、会話、添付ファイル、設定を携えてデバイスを跨ぎます——復元前にプレビューでき、自動実行も可能で、パスワード保護もできます。誰も読めないバックアップはバックアップではなく記念品ですから、これは出るときに一度、帰るときにもう一度読まれます。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">04 — 初期設定はオフ</div>
+      <h2>尋ねることすら<span class="grad-text">しません</span></h2>
+      <p class="body">共有シート連携は<strong>オフ</strong>。診断は<strong>オフ</strong>で、オンにしてもローカルに留まります。接続するアシスタントサービスはすべてあなたの選択。クラウドミラーリングはあなたが自分で設定するモジュールで、WebDAV 経由——あなたのサーバー、あなたのルールです。このアプリのどこにも「初期設定でオン、三階層のメニューに隠す」という小細工はありません。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">05 — あなたのモデル、あなたのデータ</div>
+      <h2>アシスタントが見るのは<span class="grad-text">あなたが見せたもの</span>だけ</h2>
+      <p class="body">クラウドモデルが見るのは、あなたが目の前に置いたものだけ——裏で同期も、索引化も、「改善」もされません。完全な隠者モードがお好みなら、.gguf をローカルで走らせれば、ネットワークは切ったままで構いません。暗号化に対する意図的な唯一の例外は<strong>エクスポート</strong>——Markdown、Word、PDF、Excel への書き出しです。それは他の場所でも開けるファイルであり、それこそがエクスポートの存在意義です。</p>
+      <div class="cta" style="justify-content:flex-start">
+        <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/blob/main/PRIVACY/PRIVACY.md" target="_blank" rel="noopener">プライバシーポリシー全文を読む →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>メモ、タスク、そして実際に手を動かす AI アシスタント。MIT ライセンスのオープンソースで無料。</p>
+      </div>
+      <div>
+        <h4>ページ</h4>
+        <a href="index.html">ホーム</a><a href="features.html">機能</a><a href="download.html">ダウンロード</a><a href="privacy.html">プライバシー</a><a href="about.html">概要・お問い合わせ</a>
+      </div>
+      <div>
+        <h4>開発者</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub プロフィール</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent リポジトリ</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">問題の報告</a>
+      </div>
+      <div>
+        <h4>連絡先</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">最新リリース</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
+</script>
+</body>
+</html>

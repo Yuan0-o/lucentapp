@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy — Lucent</title>
+<meta name="description" content="Lucent privacy: an encrypted database that never leaves your device, a brute-force-proof app lock, and portable password-protected backups. Structural privacy, not promises.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Lucent</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="about.html">About&nbsp;·&nbsp;Contact</a>
+      <div class="lang"><a href="privacy.html" class="cur">EN</a><a href="zh/privacy.html">中文</a><a href="ja/privacy.html">日本語</a><a href="ko/privacy.html">한국어</a></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">PRIVACY</div>
+    <h1 class="rv" style="font-size:clamp(44px,7vw,76px)">Structural,<br>not promised</h1>
+    <p class="sub rv">Anyone can <em>promise</em> privacy. Lucent is built so that violating it would require effort — the architecture simply has nowhere for your data to go.</p>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+
+    <div class="panel glass rv center" style="margin-top:0">
+      <p class="lead" style="font-size:clamp(20px,3vw,28px);color:var(--ink);max-width:780px;margin:0 auto;line-height:1.7">Nothing leaves the device until you export it or give a model a reason to look. <span class="grad-text" style="font-weight:700">That is the entire policy, and the code agrees with it.</span></p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">01 — ENCRYPTED AT REST</div>
+      <h2>The database wears <span class="grad-text">armour</span></h2>
+      <p class="body">Your notes live in a <strong>SQLCipher-encrypted database</strong>; attachments are encrypted individually. The hot paths — PBKDF2 key derivation and AES-256-GCM — run in Rust through JNI, with identical Kotlin fallbacks so the app is never held hostage by a native library. Someone holding your unlocked phone is one thing; someone holding your <em>files</em> gets nothing but noise.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">02 — THE APP LOCK</div>
+      <h2>A lock that <span class="grad-text">counts</span></h2>
+      <p class="body">This is a real brute-force policy, not a polite request: <strong>escalating cooldowns, a persisted counter that survives reboots</strong>, an optional security question, an optional self-destruct — and fingerprint on Android, Windows Hello on desktop, politely out of office for the whole cooldown. Guess wrong too many times and the app genuinely stops negotiating.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">03 — BACKUPS THAT LEAVE WITH YOU</div>
+      <h2>One file. Your pocket. <span class="grad-text">Your password.</span></h2>
+      <p class="body">Backups are a single <strong>.lcb file</strong> carrying notes, tasks, history, chats, attachments and settings across devices — previewed before a single item is changed, armed to run automatically, and password-protectable. A backup nobody can read is a keepsake rather than a backup, so this one is read on the way out and again on the way in.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">04 — OFF BY DEFAULT</div>
+      <h2>We don't even ask <span class="grad-text">first</span></h2>
+      <p class="body">Share-sheet integration: <strong>off</strong>. Diagnostics: <strong>off</strong>, and kept locally when on. The assistant services you connect are entirely your choice. Cloud mirroring is a module you configure yourself, over WebDAV — your server, your rules. There is no "enabled by default, buried three menus deep" anywhere in this app.</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">05 — YOUR MODEL, YOUR DATA</div>
+      <h2>The assistant sees only what <span class="grad-text">you show it</span></h2>
+      <p class="body">Cloud models see exactly what you put in front of them — nothing is synced, indexed or "improved" in the background. Prefer the full hermit mode? Run a .gguf locally and the network can stay off entirely. The one deliberate exception to encryption is <strong>exporting</strong> to Markdown, Word, PDF or Excel — a file you can open anywhere else, which is rather the point.</p>
+      <div class="cta" style="justify-content:flex-start">
+        <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/blob/main/PRIVACY/PRIVACY.md" target="_blank" rel="noopener">Read the full privacy policy →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>Notes, tasks, and an AI assistant with actual hands. Free and open source under the MIT Licence.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="features.html">Features</a><a href="download.html">Download</a><a href="privacy.html">Privacy</a><a href="about.html">About · Contact</a>
+      </div>
+      <div>
+        <h4>Developer</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub profile</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent repository</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">Report an issue</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">Latest release</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
+</script>
+</body>
+</html>

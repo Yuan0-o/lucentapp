@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私 — Lucent</title>
+<meta name="description" content="Lucent 的隐私：加密数据库永不离机，防暴力破解的应用锁，可随身携带的密码备份。结构性的隐私，不是口号。">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Lucent</a>
+    <div class="links">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="download.html">下载</a>
+      <a href="privacy.html" class="active">隐私</a>
+      <a href="about.html">关于·联系</a>
+      <div class="lang"><a href="../privacy.html">EN</a><a href="privacy.html" class="cur">中文</a><a href="../ja/privacy.html">日本語</a><a href="../ko/privacy.html">한국어</a></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">隐私</div>
+    <h1 class="rv" style="font-size:clamp(44px,7vw,76px)">结构性的，<br>不是许诺的</h1>
+    <p class="sub rv">许诺隐私，谁都会。Lucent 的做法是让侵犯隐私变成一件费力的事——架构里根本就没有给你的数据准备出口。</p>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+
+    <div class="panel glass rv center" style="margin-top:0">
+      <p class="lead" style="font-size:clamp(20px,3vw,28px);color:var(--ink);max-width:780px;margin:0 auto;line-height:1.7">在你导出、或让模型看之前，没有任何东西离开设备。<span class="grad-text" style="font-weight:700">这就是全部政策，代码也这么认为。</span></p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">01 — 静态加密</div>
+      <h2>数据库穿着<span class="grad-text">盔甲</span></h2>
+      <p class="body">你的笔记住在 <strong>SQLCipher 加密数据库</strong>里，附件逐个上锁。最烫的两条路——PBKDF2 密钥派生与 AES-256-GCM——用 Rust 经 JNI 跑，另有完全一致的 Kotlin 兜底，应用永远不会被一个原生库绑架。拿到你解锁的手机是一回事；拿到你的<em>文件</em>的人，得到的只是一堆噪声。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">02 — 应用锁</div>
+      <h2>会<span class="grad-text">数数</span>的锁</h2>
+      <p class="body">这是真正的暴力破解策略，不是一句客气的请求：<strong>逐级延长的冷却、重启也清不掉的计数器</strong>，可选的安全问题，可选的自毁——指纹（Android）与 Windows Hello 在整个冷却期内礼貌地告假。猜错太多次，应用真的会停止谈判。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">03 — 随身备份</div>
+      <h2>一个文件，揣进口袋，<span class="grad-text">设上密码。</span></h2>
+      <p class="body">备份是单个 <strong>.lcb 文件</strong>，带着笔记、任务、历史、对话、附件和设置跨设备走——恢复前可预览，可定时自动跑，并能设密码。没人能读的备份是纪念品不是备份，所以它出去读一遍，回来再读一遍。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">04 — 默认关闭</div>
+      <h2>连"先问你一句"都<span class="grad-text">省了</span></h2>
+      <p class="body">分享菜单集成：<strong>关</strong>。诊断：<strong>关</strong>，开了也只存本地。你接的助手服务全凭你自己选。云同步是你自己配的模块，走 WebDAV——你的服务器，你的规矩。这个应用里没有任何"默认开启、藏在三级菜单里让你关"的东西。</p>
+    </div>
+
+    <div class="feature-block rv">
+      <div class="num">05 — 你的模型，你的数据</div>
+      <h2>助手只看<span class="grad-text">你给它看的</span></h2>
+      <p class="body">云端模型看到的，恰好是你摆在它面前的东西——没有任何后台同步、索引或"改进"。想当彻底的隐士？在本地跑一个 .gguf，网络可以一直关着。加密唯一的例外是<strong>导出</strong>为 Markdown、Word、PDF 或 Excel——那是一份你在别处也能打开的文件，这正是导出的意义。</p>
+      <div class="cta" style="justify-content:flex-start">
+        <a class="btn ghost" href="https://github.com/Yuan0-o/Lucent/blob/main/PRIVACY/PRIVACY.md" target="_blank" rel="noopener">阅读完整隐私政策 →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <a class="logo" href="index.html" style="display:inline-block;margin-bottom:12px">Lucent</a>
+        <p>笔记、任务，和一位真正能动手的 AI 助手。开源免费，MIT 协议。</p>
+      </div>
+      <div>
+        <h4>页面</h4>
+        <a href="index.html">首页</a><a href="features.html">功能</a><a href="download.html">下载</a><a href="privacy.html">隐私</a><a href="about.html">关于·联系</a>
+      </div>
+      <div>
+        <h4>开发者</h4>
+        <a href="https://github.com/Yuan0-o" target="_blank" rel="noopener">GitHub 主页</a>
+        <a href="https://github.com/Yuan0-o/Lucent" target="_blank" rel="noopener">Lucent 仓库</a>
+        <a href="https://github.com/Yuan0-o/Lucent/issues" target="_blank" rel="noopener">问题反馈</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <a href="mailto:yuan47578@gmail.com">yuan47578@gmail.com</a>
+        <a href="https://github.com/Yuan0-o/Lucent/releases" target="_blank" rel="noopener">下载最新版</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Yuan0-o · MIT Licence</span>
+      <span class="pkg">com.jiaying.yuan.lucentapp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.translate=`0 ${y*(0.04+i*0.02)}px`})},{passive:true});
+</script>
+</body>
+</html>
